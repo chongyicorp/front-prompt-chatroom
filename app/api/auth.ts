@@ -29,7 +29,8 @@ function parseApiKey(bearToken: string) {
 
 async function getAppKey(req: NextRequest){
   const controller = new AbortController();
-  const authValue = req.headers.get("Authorization") ?? "";
+  // const authValue = req.headers.get("Authorization") ?? "";
+  const authValue = req.headers.get("Authorization") ?? req.nextUrl.searchParams.get("Authorization") ?? "";
   const urlPath = "/mall-portal/sso/getInvationCode";
 
   let baseUrl = BASE_URL;

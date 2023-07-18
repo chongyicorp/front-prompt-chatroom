@@ -5,6 +5,14 @@ const DEFAULT_PROTOCOL = "https";
 const PROTOCOL = process.env.PROTOCOL ?? DEFAULT_PROTOCOL;
 const BASE_URL = process.env.BASE_URL ?? OPENAI_URL;
 
+export const generateHeader = ()=>{
+  const header = new Headers();
+  const token = localStorage.getItem("token");
+  const refreshToken = localStorage.getItem("refreshToken");
+  header.set("Authorization", `${token || refreshToken}`);
+  return header
+}
+
 export async function requestOpenai(req: NextRequest) {
   const controller = new AbortController();
   const authValue = req.headers.get("Authorization") ?? "";

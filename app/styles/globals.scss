@@ -148,7 +148,7 @@ input {
   font-family: inherit;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"]:not(.daisy-toggle) {
   cursor: pointer;
   background-color: var(--white);
   color: var(--black);
@@ -163,7 +163,7 @@ input[type="checkbox"] {
   flex-shrink: 0;
 }
 
-input[type="checkbox"]:checked::after {
+input[type="checkbox"]:not(.daisy-toggle):checked::after {
   display: inline-block;
   width: 8px;
   height: 8px;

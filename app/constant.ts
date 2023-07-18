@@ -32,6 +32,7 @@ export enum StoreKey {
   Mask = "mask-store",
   Prompt = "prompt-store",
   Update = "chat-update",
+  Wechat = "wechat",
 }
 
 export const MAX_SIDEBAR_WIDTH = 500;

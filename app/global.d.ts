@@ -9,3 +9,7 @@ declare module "*.scss" {
 }
 
 declare module "*.svg";
+
+declare interface Window {
+  wechatModal: any;
+}

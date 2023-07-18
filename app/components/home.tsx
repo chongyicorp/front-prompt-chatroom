@@ -56,11 +56,14 @@ export function useSwitchTheme() {
   useEffect(() => {
     document.body.classList.remove("light");
     document.body.classList.remove("dark");
+    document.body.dataset.theme = "";
 
     if (config.theme === "dark") {
       document.body.classList.add("dark");
+      document.body.dataset.theme = "dark";
     } else if (config.theme === "light") {
       document.body.classList.add("light");
+      document.body.dataset.theme = "light";
     }
 
     const metaDescriptionDark = document.querySelector(

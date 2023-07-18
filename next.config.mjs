@@ -4,6 +4,10 @@ const nextConfig = {
   async rewrites() {
     const ret = [
       {
+        source: "/mall-api/:path*",
+        destination: "https://cyprompts.com/api/:path*",
+      },
+      {
         source: "/api/proxy/:path*",
         destination: "https://api.openai.com/:path*",
       },
