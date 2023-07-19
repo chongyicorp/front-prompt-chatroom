@@ -735,6 +735,13 @@ export function Chat() {
   // wechat hint
 
   const { wechatLoginStatus } = useWechatStatus();
+
+  useEffect(() => {
+    if (!wechatLoginStatus) {
+      window.wechatModal.showModal();
+    }
+  }, [wechatLoginStatus]);
+
   const wechatLogin = () => {
     window.wechatModal.showModal();
   };
@@ -782,12 +789,14 @@ export function Chat() {
           <dialog id="wechatModal" className="daisy-modal">
             <form method="dialog" className="daisy-modal-box">
               <WechatLogin />
-              <CloseIcon
-                className="absolute right-[20px] top-[20px] cursor-pointer"
-                onClick={() => {
-                  window.wechatModal.close();
-                }}
-              />
+              {wechatLoginStatus && (
+                  <CloseIcon
+                      className="absolute right-[20px] top-[20px] cursor-pointer"
+                      onClick={() => {
+                        window.wechatModal.close();
+                      }}
+                  />
+              )}
             </form>
           </dialog>
           <div className="window-action-button">
