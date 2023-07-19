@@ -27,6 +27,12 @@ const UserInfoForm = () => {
     return (
         <div>
             <h3 className="text-center text-2xl mb-[20px]">用户信息</h3>
+            <label className="daisy-label cursor-pointer justify-start">
+                <span className="daisy-label-text mr-[10px]"> 编辑</span>
+                <input type="checkbox" className="daisy-toggle" checked={editable} onChange={e => {
+                    setEditable(e.target.checked)
+                }}/>
+            </label>
             <div className="daisy-form-control w-full max-w-xs">
                 <label className="daisy-label">
                     <span className="daisy-label-text">用户名</span>
@@ -54,12 +60,7 @@ const UserInfoForm = () => {
                 }
 
             </div>
-            <label className="daisy-label cursor-pointer justify-start">
-                <span className="daisy-label-text mr-[10px]"> 编辑</span>
-                <input type="checkbox" className="daisy-toggle" checked={editable} onChange={e => {
-                    setEditable(e.target.checked)
-                }}/>
-            </label>
+
             {
                 editable && <a
                     className="daisy-btn daisy-btn-sm mt-[15px]"

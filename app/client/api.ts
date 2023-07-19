@@ -115,6 +115,10 @@ export function getHeaders() {
     );
   }
 
+  const token = localStorage.getItem("token");
+  const refreshToken = localStorage.getItem("refreshToken");
+  headers.Authorization = token || refreshToken || '';
+
   if (validString(accessStore.midjourneyProxyUrl)) {
     headers["midjourney-proxy-url"] = accessStore.midjourneyProxyUrl;
   }
